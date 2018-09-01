@@ -9,10 +9,10 @@ library('fiftystater')
 library(ggplot2)
 #---------------------------------------------TWEETS EXTRACTOR---------------------------------------------
 #Setting up keys
-consumer_key    <- "5RRobOAR92qXK0Oi6ETOoN3Vq"
-consumer_secret <- "PZn2pgtfnFkLKPSSEdBQywO6dDhHQDFvO12wwQxiZYN1dNX4Tv"
-access_token    <- "836059788832210945-vOMXctZLxPEOhWUw3gtrqhqOIZr0jRS"
-access_secret   <- "zoXFGt0zsFsihDi6iJZHWUw8He2c9U4mRODSz4zEB8nFQ"
+consumer_key    <- <get your own token>
+consumer_secret <- <get your own token>
+access_token    <- <get your own token>
+access_secret   <- <get your own token>
 
 
 setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
@@ -20,7 +20,7 @@ setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
 tw <- twitteR::searchTwitter('#flu', n = 20000, retryOnRateLimit = 1e3)
 new_tweets <- twitteR::twListToDF(tw)                        # get new tweets
 
-export_file <- "D:\\Academics\\Spring 2018\\Data Intensive Computing\\Lab1\\TwitterApp\\tweets2.csv";
+export_file <- "tweets2.csv";
 old_tweets <- read.csv(export_file, stringsAsFactors=FALSE)  # read old file
 
 unique_tweets <-unique(rbind(old_tweets[,2:17],new_tweets))  # append non-duplicate tweets to old tweets file
